@@ -1,0 +1,256 @@
+/* ============================================
+   TENDER AI PLATFORM - DESIGN SYSTEM
+   Complete CSS with Custom Properties
+   ============================================ */
+
+/* ============================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================ */
+
+:root {
+  /* Typography - IBM Plex (IBM's official font) */
+  --font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+  
+  /* Brand Colors - Cerebras AI / IBM Style */
+  --color-primary: #0F62FE;        /* IBM Blue 60 - Primary brand color */
+  --color-primary-dark: #002D9C;   /* IBM Blue 80 - Darker for hover */
+  --color-primary-light: #4589FF;   /* IBM Blue 50 - Lighter variant */
+  
+  /* Neutral Colors - Clean & Minimal (Cerebras AI style) */
+  --color-background: #F8F8F8;      /* Primary Background: #F8F8F8 (Cerebras-style light gray) - Calm, professional base */
+  --color-surface: #FFFFFF;         /* White for cards/surfaces */
+  --color-surface-hover: #F4F4F4;   /* Light gray for hover */
+  --color-text: #161616;           /* IBM Carbon Gray 100 - Primary text */
+  --color-text-secondary: #525252;  /* IBM Carbon Gray 70 - Secondary text */
+  --color-text-tertiary: #8D8D8D;   /* IBM Carbon Gray 50 - Tertiary text */
+  --color-border: #E0E0E0;          /* Light gray for borders */
+  --color-border-light: #F4F4F4;    /* Very light border */
+  
+  /* Interactive Colors */
+  --color-link: #0F62FE;            /* IBM Blue 60 - Link color */
+  --color-link-hover: #002D9C;      /* IBM Blue 80 - Link hover */
+  
+  /* Button Colors - Solid IBM Blue (no gradients) */
+  --color-button-bg: #0F62FE;       /* IBM Blue 60 */
+  --color-button-text: #FFFFFF;
+  --color-button-hover: #002D9C;   /* IBM Blue 80 */
+  --color-button-active: #001D6C;  /* IBM Blue 90 */
+  
+  /* Spacing System (8px base unit) */
+  --spacing: 8px;
+  --spacing-xs: calc(var(--spacing) * 0.5);   /* 4px */
+  --spacing-sm: calc(var(--spacing) * 1);      /* 8px */
+  --spacing-md: calc(var(--spacing) * 2);      /* 16px */
+  --spacing-lg: calc(var(--spacing) * 3);      /* 24px */
+  --spacing-xl: calc(var(--spacing) * 4);      /* 32px */
+  --spacing-2xl: calc(var(--spacing) * 5);     /* 40px */
+  --spacing-3xl: calc(var(--spacing) * 6);     /* 48px */
+  
+  /* Border Radius */
+  --radius: 4px;
+  --radius-sm: calc(var(--radius) * 0.5);     /* 2px */
+  --radius-md: var(--radius);                  /* 4px */
+  --radius-lg: calc(var(--radius) * 2);        /* 8px */
+  --radius-xl: calc(var(--radius) * 3);        /* 12px */
+  --radius-2xl: calc(var(--radius) * 4);       /* 16px */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition: all 0.2s ease-in-out;
+  
+  /* No gradients - Clean IBM style */
+}
+
+/* ============================================
+   DARK MODE VARIABLES
+   ============================================ */
+
+.dark {
+  --color-background: #1F2937;    /* Dark gray background */
+  --color-surface: #374151;        /* Dark gray for cards */
+  --color-text: #F9FAFB;          /* Light text */
+  --color-text-secondary: #D1D5DB; /* Medium light gray */
+  --color-border: #4B5563;        /* Dark gray borders */
+  
+  /* Keep brand colors but adjust for dark mode */
+  --color-primary: #60A5FA;        /* Lighter blue for dark mode */
+  --color-secondary: #A78BFA;      /* Lighter purple for dark mode */
+  --color-link: #60A5FA;
+  --color-link-hover: #93C5FD;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: #F8F8F8; /* Light gray background - Cerebras AI style */
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 300; /* IBM Plex Sans Thin/Light for headers */
+  line-height: 1.2;
+  color: var(--color-text);
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing for thin fonts */
+}
+
+p {
+  font-family: var(--font-family);
+  color: var(--color-text);
+}
+
+a {
+  font-family: var(--font-family);
+  color: var(--color-link);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ============================================
+   GLASS MORPHISM EFFECT
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ============================================
+   TEXT UTILITIES
+   ============================================ */
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   CARD HOVER EFFECTS
+   ============================================ */
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ============================================
+   BUTTON UTILITIES - IBM Style (Solid, No Gradients)
+   ============================================ */
+
+.btn-primary {
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: none;
+  transition: var(--transition);
+  font-family: var(--font-family);
+}
+
+.btn-primary:hover {
+  background: var(--color-button-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  background: var(--color-button-active);
+}
+
+/* ============================================
+   FOCUS STYLES FOR ACCESSIBILITY
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
